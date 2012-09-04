@@ -1,0 +1,22 @@
+@Ecore(nsURI = "http://jeeeyul.net/sudoku", nsPrefix = "s")
+@GenModel(basePackage = "net.jeeeyul.sudoku.model")
+package sudoku
+
+
+enum Difficulty{
+	SHELDON as "Sheldon"
+	SIMPSON as "Simpson"
+}
+
+class Cell{
+	int value
+	int[] markers
+}
+
+class Board{
+	contains Cell[81] cells
+	
+	op Cell getCell(int row, int col){
+		cells.^get(row * 9 + col)
+	}
+}
