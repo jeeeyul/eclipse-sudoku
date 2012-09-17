@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<p:Palette xmlns:p="http://jeeeyul.net/pde-tools" fieldName="IMAGES" folder="/net.jeeeyul.sudoku/images">
+  <imageFiles fieldName="SHELDON" file="/net.jeeeyul.sudoku/images/sheldon.jpg"/>
+  <imageFiles fieldName="SIMPSON" file="/net.jeeeyul.sudoku/images/simpson.png"/>
+</p:Palette>

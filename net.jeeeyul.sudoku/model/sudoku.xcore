@@ -11,6 +11,7 @@ enum Difficulty{
 class Cell{
 	int value
 	int[] markers
+	String memo
 }
 
 class Board{
