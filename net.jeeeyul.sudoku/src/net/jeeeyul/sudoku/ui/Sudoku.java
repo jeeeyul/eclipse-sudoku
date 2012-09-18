@@ -3,7 +3,6 @@ package net.jeeeyul.sudoku.ui;
 import java.util.HashSet;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Rectangle;
@@ -38,8 +37,8 @@ public class Sudoku extends Canvas {
 	private int boxSize;
 	private Rectangle itemArea;
 	private int margin = 5;
-	private Font itemFont;
 
+	private Font itemFont;
 	private HashSet<Resource> resources = new HashSet<Resource>();
 
 	public Sudoku(Composite parent, int style) {
@@ -60,11 +59,18 @@ public class Sudoku extends Canvas {
 		}
 	}
 
+	public Rectangle getItemArea() {
+		if(itemArea == null){
+			layoutItems();
+		}
+		return itemArea;
+	}
+
 	public Font getItemFont() {
 		if (itemFont == null || itemFont.isDisposed()) {
 			FontData[] datas = getFont().getFontData();
 			FontData itemFontData = datas[0];
-			itemFontData.setHeight(30);
+			itemFontData.setHeight(40);
 
 			itemFont = new Font(getDisplay(), itemFontData);
 			resources.add(itemFont);
@@ -110,6 +116,11 @@ public class Sudoku extends Canvas {
 				SudokuItem item = items[r * 9 + c];
 				item.setBounds(new Rectangle(itemArea.x + c * boxSize,
 						itemArea.y + r * boxSize, boxSize, boxSize));
+
+				if ((r / 3 + c / 3) % 2 == 1) {
+					item.setBackground(getDisplay().getSystemColor(
+							SWT.COLOR_WHITE));
+				}
 			}
 		}
 	}
