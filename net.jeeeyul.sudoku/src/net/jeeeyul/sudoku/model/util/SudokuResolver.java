@@ -294,6 +294,7 @@ public class SudokuResolver {
 				throw new NoAnswerException();
 			}
 			push(nextSequence);
+			return;
 		}
 
 		if (isFilled) {
